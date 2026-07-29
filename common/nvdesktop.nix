@@ -15,7 +15,7 @@
       configFile = ../i3/config;
       extraPackages = with pkgs; [
         dmenu
-        i3status
+        i3status-rust
         i3lock
       ];
     };
@@ -23,5 +23,6 @@
 
   fonts.packages = with pkgs; [
     overpass
+    nerd-fonts.symbols-only
   ];
 }

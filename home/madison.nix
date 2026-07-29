@@ -73,11 +73,63 @@
          set softtabstop=4
          set shiftwidth=4
          set expandtab
-         
+
          set nocompatible
          filetype plugin indent on
          syntax on
     '';
+  };
+
+  programs.mpv = {
+    enable = true;
+
+    scripts = with pkgs.mpvScripts; [
+      videoclip
+    ];
+
+    scriptOpts = {
+      videoclip = {
+        video_folder_path = "~/videos";
+      };
+    };
+
+    config = {
+      alang = "ja,jpn";
+      slang = "en,eng,enUS";
+      screenshot-directory = "~/screenshots";
+      screenshot-template = "screenshot-%F_%P";
+      sub-scale = 0.8;
+      osd-duration = 500;
+      osd-font-size = 25;
+    };
+
+    extraInput = ''
+      KP7     add sub-scazle -0.05
+      KP8     set sub-scale 1.0
+      KP9     add sub-scale +0.05
+      o       cycle-values osd-level 2 1
+      s       screenshot video
+      S       screenshot subtitles
+      Ctrl+s  screenshot video+each-frame
+    '';
+  };
+
+  programs.i3status-rust = {
+    enable = true;
+    bars = {
+      default = {
+        blocks = [
+          {
+            block = "sound";
+          }
+          {
+            block = "time";
+            interval = 60;
+            format = " $timestamp.datetime(f:'%a %d/%m %R') ";
+          }
+        ];
+      };
+    };
   };
 
   programs.home-manager.enable = true;

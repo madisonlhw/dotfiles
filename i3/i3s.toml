@@ -1,0 +1,11 @@
+[icons]
+icons = "awesome6"
+
+[[block]]
+block = "sound"
+driver = "pulseaudio" # Works out-of-the-box for PipeWire and PulseAudio
+
+[[block]]
+block = "time"
+interval = 1
+format = " $timestamp.datetime(f:'%a %Y-%m-%d %R:%S') "

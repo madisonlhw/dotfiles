@@ -7,8 +7,8 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -61,6 +61,9 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
+    blender
+    mpv
+    pavucontrol
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -92,6 +95,13 @@
 
   environment.variables = {
     EDITOR = "vim";
+  };
+
+  services.mullvad-vpn.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
   };
 }
 
