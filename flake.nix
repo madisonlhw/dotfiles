@@ -13,12 +13,20 @@
   outputs = { self, nixpkgs, home-manager, ...}@inputs:
     let
       supportedSystems = [ "x86_64-linux" "aarch64-linux" ];
-      forEachSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
+      forEachSystem = f: nixpkgs.lib.genAttrs supportedSystems (system:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            config = { allowUnfree = true; };
+          };
+        in f pkgs
+        );
     in
     {
       nixosConfigurations.akatsuki = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          ./common/nvdesktop.nix
           ./common/global-packages.nix
           ./common/jpinput.nix
           ./common/yubikey.nix
@@ -44,6 +52,7 @@
             valgrind
             clang-tools
             nodejs
+            readline
 
             (vim-full.customize {
               name = "vim";
@@ -51,15 +60,16 @@
                 start = with pkgs.vimPlugins; [
                   coc-nvim
                   coc-clangd
+                  vim-polyglot
                 ];
               };
 
               vimrcConfig.customRC = ''
                 set number
-                set relativenumber
+                syntax on
+                filetype plugin indent on
 
                 set statusline+=%{\ '[C-Dev\ Shell]'}
-                echo "C-Dev configuration loaded!"
               '';
             })
           ];
