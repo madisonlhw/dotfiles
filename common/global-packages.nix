@@ -5,5 +5,6 @@
       wget
       vim
       signal-desktop
+      ungoogled-chromium
    ];
 }
