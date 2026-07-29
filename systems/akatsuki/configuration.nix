@@ -68,6 +68,8 @@
     qgis
     imagemagick
     lastools
+    inkscape
+    gimp
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
