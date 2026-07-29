@@ -43,6 +43,25 @@
             gdb
             valgrind
             clang-tools
+            nodejs
+
+            (vim-full.customize {
+              name = "vim";
+              vimrcConfig.packages.myVimPackages = {
+                start = with pkgs.vimPlugins; [
+                  coc-nvim
+                  coc-clangd
+                ];
+              };
+
+              vimrcConfig.customRC = ''
+                set number
+                set relativenumber
+
+                set statusline+=%{\ '[C-Dev\ Shell]'}
+                echo "C-Dev configuration loaded!"
+              '';
+            })
           ];
 
           shellHook = ''
