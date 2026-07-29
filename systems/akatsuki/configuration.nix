@@ -65,6 +65,9 @@
     mpv
     pavucontrol
     qbittorrent
+    qgis
+    imagemagick
+    lastools
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
