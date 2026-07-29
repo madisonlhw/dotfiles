@@ -16,6 +16,7 @@
          modules = [
             ./common/global-packages.nix
             ./common/jpinput.nix
+            ./common/yubikey.nix
             ./systems/akatsuki/hardware-configuration.nix
             ./systems/akatsuki/configuration.nix
             

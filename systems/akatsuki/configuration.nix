@@ -115,5 +115,9 @@
   fonts.packages = with pkgs; [
     overpass
   ];
+
+  environment.variables = {
+    EDITOR = "vim";
+  };
 }
 

@@ -3,6 +3,10 @@
    home.homeDirectory = "/home/madison";
    home.stateVersion = "26.05";
 
+   home.sessionVariables = {
+      EDITOR = "vim";
+   };
+
    home.packages = with pkgs; [
       hyfetch
       gh
