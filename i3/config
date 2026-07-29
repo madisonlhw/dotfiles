@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Overpass 11
+font pango:Overpass 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -183,9 +183,41 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Color Scheme
+set $sky 	#1c1b2e
+set $surface	#2a2740
+set $muted	#524f6e
+set $violet	#c4a7e7
+set $rose	#eb6f92
+set $amber	#f6a35c
+set $gold	#f6c177
+set $light	#e8e6f2
+
+# class				border/background/text/indicator/child_border
+client.focused 			$rose $surface$light $amber $rose
+client.focused_inactive		$muted $surface $light $muted $muted
+client.unfocused		$sky $sky $muted $sky $sky
+client.urgent			$amber $amber $sky $amber $amber
+client.placeholder		$sky $surface $light $sky $surface
+
+gaps outer 8
+gaps inner 4
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	font pango:Overpass Mono 10
+	colors {
+		background $sky
+		statusline $light
+		separator $muted
+
+		# state			border/background/text
+		focused_workspace	$rose $rose $sky
+		active_workspace	$muted $surfcace $light
+		inactive_workspace	$surface $surface $muted
+		urgent_workspace	$amber $amber $sky
+		binding_mode		$gold $gold $sky
+	}
+	font pango:Overpass Mono 11
         status_command i3status
 }

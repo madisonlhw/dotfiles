@@ -4,5 +4,6 @@
       curl
       wget
       vim
+      signal-desktop
    ];
 }
