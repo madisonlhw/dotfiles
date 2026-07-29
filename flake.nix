@@ -15,6 +15,7 @@
          system = "x86_64-linux";
          modules = [
             ./common/global-packages.nix
+            ./common/jpinput.nix
             ./systems/akatsuki/hardware-configuration.nix
             ./systems/akatsuki/configuration.nix
             
