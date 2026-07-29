@@ -5,6 +5,7 @@
 
    home.packages = with pkgs; [
       hyfetch
+      gh
    ];
 
    programs.git = {
@@ -16,6 +17,7 @@
          };
          init.defaultBranch = "main";
          core.editor = "vim";
+         safe.directory = "/home/madison/.dotfiles";
       };
    };
 
