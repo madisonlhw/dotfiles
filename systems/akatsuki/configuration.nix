@@ -116,5 +116,9 @@
       ];
     };
   };
+
+  fonts.packages = with pkgs; [
+    overpass
+  ];
 }
 

@@ -6,6 +6,7 @@
    home.packages = with pkgs; [
       hyfetch
       gh
+      alacritty
    ];
 
    programs.git = {
