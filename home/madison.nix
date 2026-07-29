@@ -66,5 +66,19 @@
       };   
    };
 
+   programs.vim = {
+      enable = true;
+      defaultEditor = true;
+      plugins = with pkgs.vimPlugins; [
+         vim-airline
+      ];
+      extraConfig = ''
+         set tabstop=4
+         set softtabstop=4
+         set shiftwidth=4
+         set expandtab
+      '';
+   };
+
    programs.home-manager.enable = true;
 }
