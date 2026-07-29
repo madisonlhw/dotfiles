@@ -21,6 +21,12 @@
     };
   };
 
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+  };
+
   fonts.packages = with pkgs; [
     overpass
     nerd-fonts.symbols-only

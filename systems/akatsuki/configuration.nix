@@ -64,6 +64,7 @@
     blender
     mpv
     pavucontrol
+    qbittorrent
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -98,10 +99,4 @@
   };
 
   services.mullvad-vpn.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-  };
 }
-
