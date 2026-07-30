@@ -14,7 +14,7 @@
       enable = true;
       configFile = ../i3/config;
       extraPackages = with pkgs; [
-        dmenu
+        rofi
         i3status-rust
         i3lock
       ];
