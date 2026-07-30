@@ -7,5 +7,6 @@
       vim
       signal-desktop
       ungoogled-chromium
+      yazi
    ];
 }
